@@ -16,7 +16,7 @@ private:
 
 	struct AppInputs {
 		wxTextCtrl* projectName = nullptr;
-		wxTextCtrl* projecDir = nullptr;
+		wxTextCtrl* projectDir = nullptr;
 	} inputs;
 
 

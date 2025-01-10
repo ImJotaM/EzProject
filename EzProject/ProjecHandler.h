@@ -17,7 +17,7 @@ public:
 	void SetName(const char* name);
 
 	fs::path GetDirectory();
-	void SetDirectory();
+	void SetDirectory(fs::path projectDir);
 
 	void Create();
 
