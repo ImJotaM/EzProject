@@ -1,4 +1,4 @@
-#include "ProjecHandler.h"
+#include "ProjectHandler.h"
 #include <Windows.h>
 
 ProjectHandler::ProjectHandler() {
@@ -27,7 +27,10 @@ void ProjectHandler::SetDirectory(fs::path projectDir) {
 void ProjectHandler::Create() {
 
 	std::string command = ".\\premake\\premake5.exe vs2022 --file=premake/premake5.lua";
+
 	command += " --projectName=" + project.name;
+	command += " --projectDir=" + project.directory.native();
+	
 	command += " > output.log 2>&1";
 
 	STARTUPINFOA si;

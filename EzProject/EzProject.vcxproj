@@ -96,14 +96,11 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h" />
-    <ClInclude Include="MainFrame.h" />
-    <ClInclude Include="ProjecHandler.h" />
+    <ClInclude Include="ProjectHandler.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
-    <ClCompile Include="MainFrame.cpp" />
-    <ClCompile Include="ProjecHandler.cpp" />
+    <ClCompile Include="EzProject.cpp" />
+    <ClCompile Include="ProjectHandler.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
