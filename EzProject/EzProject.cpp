@@ -12,7 +12,7 @@ public:
 
 		this->SetBackgroundColour(bgColor);
 
-		wxPanel* panel_main = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(300, 400));
+		wxPanel* panel_main = new wxPanel(this, wxID_ANY, wxDefaultPosition, this->FromDIP(wxSize(300, 400)));
 		panel_main->SetBackgroundColour(bgColor);
 
 		wxStaticText* label_projectName = new wxStaticText(panel_main, wxID_ANY, "Project name");
@@ -26,6 +26,19 @@ public:
 		sizer_projectDirectory->Add(input_projectDirectory, 1, wxRIGHT, 5);
 		sizer_projectDirectory->Add(button_projectDirectory);
 
+		wxStaticText* label_scrollLibraries = new wxStaticText(panel_main, wxID_ANY, "Libraries");
+		wxScrolledWindow* scroll_libraries = new wxScrolledWindow(panel_main, wxID_ANY, wxDefaultPosition, wxSize(-1, 100));
+		scroll_libraries->SetScrollRate(10, 10);
+
+		wxBoxSizer* sizer_scroll = new wxBoxSizer(wxVERTICAL);
+
+		for (int i = 0; i < 10; i++) {
+			auto* checkbox = new wxCheckBox(scroll_libraries, wxID_ANY, "Checkbox #");
+			sizer_scroll->Add(checkbox);
+		}
+
+		scroll_libraries->SetSizer(sizer_scroll);
+
 		wxButton* button_createProject = new wxButton(panel_main, wxID_ANY, "Create");
 
 		wxBoxSizer* sizer_main = new wxBoxSizer(wxVERTICAL);
@@ -36,6 +49,10 @@ public:
 		sizer_main->Add(label_projectDirectory);
 		sizer_main->AddSpacer(4);
 		sizer_main->Add(sizer_projectDirectory, 0, wxEXPAND);
+		sizer_main->AddSpacer(8);
+		sizer_main->Add(label_scrollLibraries);
+		sizer_main->AddSpacer(4);
+		sizer_main->Add(scroll_libraries, 0, wxEXPAND);
 		sizer_main->AddStretchSpacer();
 		sizer_main->Add(button_createProject, 0, wxALIGN_RIGHT | wxRIGHT | wxTOP, 5);
 		panel_main->SetSizer(sizer_main);
